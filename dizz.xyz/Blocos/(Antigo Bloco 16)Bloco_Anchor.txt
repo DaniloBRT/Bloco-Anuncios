@@ -1,0 +1,11 @@
+<script>
+// Anchor
+googletag.cmd.push(function() {
+    var anchorSlot = googletag.defineOutOfPageSlot('/22672590832/dizz.xyz/Dizz_Anchor', googletag.enums.OutOfPageFormat.TOP_ANCHOR);
+    if (anchorSlot) {
+        anchorSlot.addService(googletag.pubads());
+    }
+    googletag.enableServices();
+    googletag.display(anchorSlot);
+});
+</script>

@@ -1,0 +1,41 @@
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-181670863-2');
+
+  window.googletag = window.googletag || {cmd: []};
+  
+  googletag.cmd.push(function() {
+    googletag.pubads().setTargeting('id_post_wp', ['<?php echo get_the_ID(); ?>']);
+    if(window.location.search){
+		var queryString = window.location.search;
+		var urlParams = new URLSearchParams(queryString);
+		var utm_source = urlParams.get('utm_source');
+		var utm_medium = urlParams.get('utm_medium');
+		var utm_campaign = urlParams.get('utm_campaign');
+
+		if(utm_source){ 
+			googletag.pubads().setTargeting('utm_source', [utm_source]);			
+		}
+
+		if(utm_medium){
+			googletag.pubads().setTargeting('utm_medium', [utm_medium]);			
+		}
+
+		if(utm_campaign){			
+			googletag.pubads().setTargeting('utm_campaign', [utm_campaign]);
+		}
+	}
+  })
+  
+// Interstitial
+googletag.cmd.push(function() {
+    var slot = googletag.defineOutOfPageSlot('/22672590832/dizz.xyz/Dizz_Interstitial', googletag.enums.OutOfPageFormat.INTERSTITIAL);
+    if (slot) slot.addService(googletag.pubads());
+    googletag.enableServices();
+    googletag.display(slot);
+})
+
+  
+</script>
